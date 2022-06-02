@@ -1,84 +1,102 @@
 #include <iostream>
+#include <conio.h>
+#include <string.h>
 using namespace std;
-
-//menyimpan item daftar kedekatan
-struct adjNode {
-    int val, cost;
-    adjNode* next;
-};
-//struktur untuk menyimpan edges
-struct graphEdge {
-    int start_ver, end_ver, weight;
-};
-class DiaGraph{
-    //masukkan node baru ke dalam daftar kedekatan dari grafik yang diberikan
-    adjNode* getAdjListNode(int value, int weight, adjNode* head){
-        adjNode* newNode = new adjNode;
-        newNode->val = value;
-        newNode->cost = weight;
-        newNode->next = head;
-        return newNode;
-    }
-    //jumlah node dalam grafik
-    int N;
-public:
-    //daftar kedekatan sebagai array pointer
-    adjNode **head;
-    // Constructor
-    DiaGraph(graphEdge edges[], int n, int N)  {
-        // mengalokasikan simpul baru
-        head = new adjNode*[N]();
-        this->N = N;
-        // initialize head pointer for all vertices
-        for (int i = 0; i < N; ++i)
-            head[i] = nullptr;
-        //inisialisasi penunjuk kepala untuk semua simpul
-        for (unsigned i = 0; i < n; i++)  {
-            int start_ver = edges[i].start_ver;
-            int end_ver = edges[i].end_ver;
-            int weight = edges[i].weight;
-            // masukkan di awal
-            adjNode* newNode = getAdjListNode(end_ver, weight, head[start_ver]);
-            // arahkan penunjuk kepala ke simpul baru
-            head[start_ver] = newNode;
-             }
-    }
-      // Destructor
-     ~DiaGraph() {
-    for (int i = 0; i < N; i++)
-        delete[] head[i];
-        delete[] head;
-     }
-};
-// cetak semua simpul yang berdekatan dari simpul yang diberikan
-void display_AdjList(adjNode* ptr, int i)
-{
-    while (ptr != nullptr) {
-        cout <<  i << " -> " << "[" << ptr->val
-            << ", " << ptr->cost << "] ";
-        ptr = ptr->next;
-    }
-    cout << endl;
-}
-// implementasi grafik
 int main()
 {
-    // array tepi grafik
-    graphEdge edges[] = {
-        // (x, y, w) -> tepi dari x ke y dengan bobot w
-        {1,2,5},{2,3,1},{4,1,3},{2,4,1},{3,1,1}
-    };
-    // Jumlah simpul dalam grafik
-    int N = 4;
-    // hitung jumlah rusuknya
-    int n = sizeof(edges)/sizeof(edges[0]);
-    // construct graph
-    DiaGraph diagraph(edges, n, N);
-    // cetak representasi daftar kedekatan grafik
-    for (int i = 0; i < N; i++)
-    {
-        // menampilkan simpul yang berdekatan dari simpul i
-        display_AdjList(diagraph.head[i], i);
-    }
-    return 0;
+    char kota_1[10],kota_2[10],kota_3[10],kota_4[10],kota_5[10];
+    int jumlah,panjang, hasil_1,hasil_2,hasil_3,hasil_4,hasil_5,hasil_6,hasil_7;
+
+    //input jumlah kota
+	cout<<"---------------------------------------------------------------------------"<<endl;
+    cout<<"Berapa jumlah kota dalam kerajaan Britan : ";
+    cin>>jumlah;
+	cout<<"---------------------------------------------------------------------------"<<endl;
+
+    //input nama kota
+    cout<<"Kota Pertama : ";
+    cin>>kota_1;
+    cout<<"Kota Kedua   : ";
+    cin>>kota_2;
+    cout<<"Kota Ketiga  : ";
+    cin>>kota_3;
+    cout<<"Kota Keempat : ";
+    cin>>kota_4;
+	cout<<"Kota kelima  : ";
+	cin>>kota_5;
+	cout<<endl;
+
+	//deklarasi graph
+	//menampilkan graph yang terjadi
+    cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<<"* Sisi-sisinya adalah : "<<endl;
+	cout<<"---------------------------------------------------------------------------"<<endl;
+    cout<<kota_1<<kota_2<<",";
+    cout<<kota_1<<kota_4<<",";
+    cout<<kota_1<<kota_5<<",";
+    cout<<kota_2<<kota_3<<",";
+    cout<<kota_3<<kota_5<<",";
+    cout<<kota_3<<kota_4<<",";
+    cout<<kota_4<<kota_5<<endl<<endl;
+
+	//deklarasi edge
+	//menampilkan panjang jalan yang menghubungkan vertex
+	cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<<"Panjang jalan antar kota brintan : "<<endl;
+	cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<<"panjang "<<kota_1<<" ke "<<kota_2<< ": "; cin>> hasil_1;
+	cout<<"panjang "<<kota_1<<" ke "<<kota_4<< ": "; cin>> hasil_2;
+	cout<<"panjang "<<kota_1<<" ke "<<kota_5<< ": "; cin>> hasil_3;
+	cout<<"panjang "<<kota_2<<" ke "<<kota_3<< ": "; cin>> hasil_4;
+	cout<<"panjang "<<kota_3<<" ke "<<kota_5<< ": "; cin>> hasil_5;
+	cout<<"panjang "<<kota_3<<" ke "<<kota_4<< ": "; cin>> hasil_6;
+	cout<<"panjang "<<kota_4<<" ke "<<kota_5<< ": "; cin>> hasil_7;
+	cout<<endl;
+
+	//deklarasi adjacent
+	//menampilkan jalan yang menghubungkan kedua simpul (x,y,z)
+	cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<<"seluruh jalan yang ada dalam kerajaan britan dan panjang jalannya : "<< endl;
+	cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<<"("<<kota_1<<","<<kota_2<<","<<hasil_1<<") ";
+	cout<<"("<<kota_1<<","<<kota_4<<","<<hasil_2<<") ";
+	cout<<"("<<kota_1<<","<<kota_5<<","<<hasil_3<<") ";
+	cout<<"("<<kota_2<<","<<kota_3<<","<<hasil_4<<") ";
+	cout<<"("<<kota_3<<","<<kota_5<<","<<hasil_5<<") ";
+	cout<<"("<<kota_3<<","<<kota_4<<","<<hasil_6<<") ";
+	cout<<"("<<kota_4<<","<<kota_5<<","<<hasil_7<<") ";
+	cout<<endl<<endl;
+
+	//hasil
+	//menampilkan tempat pedagang berada
+	cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<<"kota tempat pedagang sekarang berada : "<<endl<<endl;
+	cout<<kota_1;
+	cout<<endl<<endl;
+
+	//menampilkan kota yang diserang naga
+	cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<<"kota yang diserang naga : "<<endl<<endl;
+	cout<<kota_3;
+	cout<<endl<<endl;
+
+	//menampilkan kota yang terdapat kastil
+	cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<<"kota yang memiliki kastil : "<<endl<<endl;
+	cout<<kota_5;
+	cout<<endl<<endl;
+
+	//menampilkan vertex tercepat untuk selamat
+	cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<<"jalur yang paling cepat ditempuh : "<<endl<<endl;
+	cout<<kota_1<<"-"<<kota_4<<"-"<<kota_5<<endl;
+	cout<<endl<<endl;
+
+	//total edge yang harus ditempuh
+    cout<<"---------------------------------------------------------------------------"<<endl;
+	cout<< "dengan jarak : "<<endl<<endl;
+	cout<<hasil_2+hasil_7<<endl<<endl;
+
+	getch();
+	return 0;
 }
