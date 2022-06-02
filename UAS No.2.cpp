@@ -7,37 +7,37 @@ int main()
     char kota_1[10],kota_2[10],kota_3[10],kota_4[10],kota_5[10];
     int jumlah,panjang, hasil_1,hasil_2,hasil_3,hasil_4,hasil_5,hasil_6,hasil_7;
 
-    //input jumlah kota
+    	//input jumlah kota
 	cout<<"---------------------------------------------------------------------------"<<endl;
-    cout<<"Berapa jumlah kota dalam kerajaan Britan : ";
-    cin>>jumlah;
+    	cout<<"Berapa jumlah kota dalam kerajaan Britan : ";
+    	cin>>jumlah;
 	cout<<"---------------------------------------------------------------------------"<<endl;
 
-    //input nama kota
-    cout<<"Kota Pertama : ";
-    cin>>kota_1;
-    cout<<"Kota Kedua   : ";
-    cin>>kota_2;
-    cout<<"Kota Ketiga  : ";
-    cin>>kota_3;
-    cout<<"Kota Keempat : ";
-    cin>>kota_4;
+    	//input nama kota
+    	cout<<"Kota Pertama : ";
+ 	cin>>kota_1;
+    	cout<<"Kota Kedua   : ";
+    	cin>>kota_2;
+    	cout<<"Kota Ketiga  : ";
+    	cin>>kota_3;
+    	cout<<"Kota Keempat : ";
+    	cin>>kota_4;
 	cout<<"Kota kelima  : ";
 	cin>>kota_5;
 	cout<<endl;
 
 	//deklarasi graph
 	//menampilkan graph yang terjadi
-    cout<<"---------------------------------------------------------------------------"<<endl;
+    	cout<<"---------------------------------------------------------------------------"<<endl;
 	cout<<"* Sisi-sisinya adalah : "<<endl;
 	cout<<"---------------------------------------------------------------------------"<<endl;
-    cout<<kota_1<<kota_2<<",";
-    cout<<kota_1<<kota_4<<",";
-    cout<<kota_1<<kota_5<<",";
-    cout<<kota_2<<kota_3<<",";
-    cout<<kota_3<<kota_5<<",";
-    cout<<kota_3<<kota_4<<",";
-    cout<<kota_4<<kota_5<<endl<<endl;
+	cout<<kota_1<<kota_2<<",";
+    	cout<<kota_1<<kota_4<<",";
+    	cout<<kota_1<<kota_5<<",";
+    	cout<<kota_2<<kota_3<<",";
+	cout<<kota_3<<kota_5<<",";
+    	cout<<kota_3<<kota_4<<",";
+    	cout<<kota_4<<kota_5<<endl<<endl;
 
 	//deklarasi edge
 	//menampilkan panjang jalan yang menghubungkan vertex
@@ -93,7 +93,7 @@ int main()
 	cout<<endl<<endl;
 
 	//total edge yang harus ditempuh
-    cout<<"---------------------------------------------------------------------------"<<endl;
+    	cout<<"---------------------------------------------------------------------------"<<endl;
 	cout<< "dengan jarak : "<<endl<<endl;
 	cout<<hasil_2+hasil_7<<endl<<endl;
 
